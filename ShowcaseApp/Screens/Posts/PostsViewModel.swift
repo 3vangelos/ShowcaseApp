@@ -1,10 +1,8 @@
 import Foundation
 
 class PostsViewModel {
-    
-    let api: API
-    
-    // Binding Closures
+
+    //MARK: Variables
     
     var reloadViewClosure: (()->())?
     var showAlertClosure: (()->())?
@@ -19,22 +17,28 @@ class PostsViewModel {
         return posts.count
     }
     
-    func cellViewModelAtIndex(_ index: Int) -> PostCellViewModel? {
-        let post = self.posts[index]
-        return PostCellViewModel(post)
-    }
+    //MARK: Private Variables
     
+    private let user: User
+    private let api: API
     private var posts: [Post] = [] {
         didSet {
             self.reloadViewClosure?()
         }
     }
     
-    private let user: User
+    //MARK: Init Method
     
     init(user: User, api: API) {
         self.api = api
         self.user = user
+    }
+    
+    //MARK: Public Methods
+    
+    func cellViewModelAtIndex(_ index: Int) -> PostCellViewModel? {
+        let post = self.posts[index]
+        return PostCellViewModel(post)
     }
     
     func fetchData() {

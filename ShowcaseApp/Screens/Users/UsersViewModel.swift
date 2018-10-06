@@ -2,9 +2,7 @@ import Foundation
 
 class UsersViewModel {
     
-    let api: API
-    
-    // Binding Closures
+    //MARK: Variables
     
     var reloadViewClosure: (()->())?
     var showAlertClosure: (()->())?
@@ -19,6 +17,23 @@ class UsersViewModel {
         return users.count
     }
     
+    //MARK: Private Variables
+    
+    private let api: API
+    private var users: [User] = [] {
+        didSet {
+            self.reloadViewClosure?()
+        }
+    }
+    
+    //MARK: Init Method
+    
+    init(api: API = API()) {
+        self.api = api
+    }
+    
+    //MARK: Public Methods
+    
     func cellViewModelAtIndex(_ index: Int) -> UsersCellViewModel? {
         let user = self.users[index]
         return UsersCellViewModel(user)
@@ -27,17 +42,6 @@ class UsersViewModel {
     func postsViewModelAtIndex(_ index: Int) -> PostsViewModel? {
         let user = self.users[index]
         return PostsViewModel(user: user, api: self.api)
-    }
-    
-    
-    private var users: [User] = [] {
-        didSet {
-            self.reloadViewClosure?()
-        }
-    }
-    
-    init(api: API = API()) {
-        self.api = api
     }
     
     func fetchData() {

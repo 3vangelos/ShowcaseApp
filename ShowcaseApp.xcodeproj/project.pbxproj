@@ -192,8 +192,8 @@
 			isa = PBXGroup;
 			children = (
 				F1E192332168998E003615F7 /* Address.swift */,
-				F1E19231216898C6003615F7 /* User.swift */,
 				F1E192502168BC2C003615F7 /* Post.swift */,
+				F1E19231216898C6003615F7 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -210,9 +210,9 @@
 		F1E192422168A4D5003615F7 /* Users */ = {
 			isa = PBXGroup;
 			children = (
+				F1E1924E2168B714003615F7 /* UsersCellViewModel.swift */,
 				F1E1920C2167B952003615F7 /* UsersViewController.swift */,
 				F1E192452168A50A003615F7 /* UsersViewModel.swift */,
-				F1E1924E2168B714003615F7 /* UsersCellViewModel.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -239,9 +239,9 @@
 		F1E192592168C84F003615F7 /* Posts */ = {
 			isa = PBXGroup;
 			children = (
+				F1E1925E2168C901003615F7 /* PostCellViewModel.swift */,
 				F1E1925A2168C85F003615F7 /* PostsViewController.swift */,
 				F1E1925C2168C87D003615F7 /* PostsViewModel.swift */,
-				F1E1925E2168C901003615F7 /* PostCellViewModel.swift */,
 			);
 			path = Posts;
 			sourceTree = "<group>";

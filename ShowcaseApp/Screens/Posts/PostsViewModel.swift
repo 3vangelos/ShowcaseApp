@@ -1,6 +1,6 @@
 import Foundation
 
-class UsersViewModel {
+class PostsViewModel {
     
     let api: API
     
@@ -16,36 +16,33 @@ class UsersViewModel {
     }
     
     var numberOfCells: Int {
-        return users.count
+        return posts.count
     }
     
-    func cellViewModelAtIndex(_ index: Int) -> UsersCellViewModel? {
-        let user = self.users[index]
-        return UsersCellViewModel(user)
+    func cellViewModelAtIndex(_ index: Int) -> PostCellViewModel? {
+        let post = self.posts[index]
+        return PostCellViewModel(post)
     }
     
-    func postsViewModelAtIndex(_ index: Int) -> PostsViewModel? {
-        let user = self.users[index]
-        return PostsViewModel(user: user, api: self.api)
-    }
-    
-    
-    private var users: [User] = [] {
+    private var posts: [Post] = [] {
         didSet {
             self.reloadViewClosure?()
         }
     }
     
-    init(api: API = API()) {
+    private let user: User
+    
+    init(user: User, api: API) {
         self.api = api
+        self.user = user
     }
     
     func fetchData() {
-        api.getUsers { users, error in
+        api.getPostsByUserId(self.user.id) { posts, error in
             if let error = error {
                 self.alertMessage = error.message
-            } else if let users = users {
-                self.users = users
+            } else if let posts = posts {
+                self.posts = posts
             }
         }
     }

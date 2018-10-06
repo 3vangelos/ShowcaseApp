@@ -26,7 +26,7 @@ class UsersViewController: UIViewController {
     
     //MARK: Private Variables
     
-    private lazy var usersView = UsersView(self)
+    private lazy var usersView = TableView(cellClass: UsersTableViewCell.self, delegate: self)
     
     //MARK: Init Methods
     
@@ -74,6 +74,12 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.vm?.numberOfCells ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let postsViewModel = self.vm?.postsViewModelAtIndex(indexPath.row) else { return }
+        let vc = PostsViewController(viewModel: postsViewModel)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

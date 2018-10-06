@@ -1,11 +1,13 @@
 import UIKit
 
-class UsersView: UIView {
-    
+class TableView: UIView {
+
     //MARK: Private Variables
     
-    private let usersCellReuseIdentifier = "usersCellReuseIdentifier"
-    
+    private let classType: UITableViewCell.Type
+    private var cellReuseIdentifier: String {
+        return String(describing: self.classType)
+    }
     private let tableView = UITableView()
     
     //MARK: Init Methods
@@ -18,32 +20,32 @@ class UsersView: UIView {
         fatalError("init(frame:) has not been implemented")
     }
     
-    init(_ delegate: UITableViewDelegate & UITableViewDataSource) {
+    init(cellClass: UITableViewCell.Type, delegate: UITableViewDelegate & UITableViewDataSource) {
+        self.classType = cellClass
         super.init(frame: .null)
         
         tableView.delegate = delegate
         tableView.dataSource = delegate
-        tableView.estimatedRowHeight = UsersTableViewCell.CELL_HEIGHT
         tableView.rowHeight = UITableView.automaticDimension
         tableView.allowsMultipleSelection = false
-        tableView.register(UsersTableViewCell.self, forCellReuseIdentifier: usersCellReuseIdentifier)
+        tableView.register(self.classType,
+                           forCellReuseIdentifier: cellReuseIdentifier)
         self.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.edges.equalTo(self)
         }
-        
     }
 }
 
 //MARK: Internal Methods
 
-extension UsersView {
+extension TableView {
     func reload() {
         self.tableView.reloadData()
     }
     
-    func dequeCellForIndexPath(_ indexPath: IndexPath) -> UsersTableViewCell {
-        return tableView.dequeueReusableCell(withIdentifier: usersCellReuseIdentifier,
-                                             for: indexPath) as! UsersTableViewCell
+    func dequeCellForIndexPath(_ indexPath: IndexPath) -> UITableViewCell {
+        return tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier,
+                                             for: indexPath)
     }
 }

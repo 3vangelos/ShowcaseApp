@@ -1,7 +1,9 @@
 import Foundation
 
 
-class UsersCellViewModel {
+struct UsersCellViewModel {
+    
+    //MARK: Variables
     
     var name: String? {
         return self.user.name
@@ -19,7 +21,11 @@ class UsersCellViewModel {
         return self.user.address?.concatenated()
     }
     
+    //MARK: Private Variables
+    
     private let user: User
+    
+    //MARK: Init Methods
     
     init(_ user: User) {
         self.user = user

@@ -21,7 +21,7 @@
 		F1E1923A21689C9F003615F7 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E1923921689C9F003615F7 /* Response.swift */; };
 		F1E1923C21689CD4003615F7 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E1923B21689CD4003615F7 /* Request.swift */; };
 		F1E1923E21689CF8003615F7 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E1923D21689CF8003615F7 /* API.swift */; };
-		F1E192442168A4F5003615F7 /* UsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E192432168A4F5003615F7 /* UsersView.swift */; };
+		F1E192442168A4F5003615F7 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E192432168A4F5003615F7 /* TableView.swift */; };
 		F1E192462168A50A003615F7 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E192452168A50A003615F7 /* UsersViewModel.swift */; };
 		F1E192482168A56E003615F7 /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E192472168A56E003615F7 /* UsersTableViewCell.swift */; };
 		F1E1924B2168A729003615F7 /* UIFont+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E1924A2168A729003615F7 /* UIFont+Helpers.swift */; };
@@ -29,6 +29,10 @@
 		F1E1924F2168B714003615F7 /* UsersCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E1924E2168B714003615F7 /* UsersCellViewModel.swift */; };
 		F1E192512168BC2C003615F7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E192502168BC2C003615F7 /* Post.swift */; };
 		F1E192532168BF07003615F7 /* APITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E192522168BF07003615F7 /* APITests.swift */; };
+		F1E192562168C458003615F7 /* PostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E192552168C458003615F7 /* PostsTableViewCell.swift */; };
+		F1E1925B2168C860003615F7 /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E1925A2168C85F003615F7 /* PostsViewController.swift */; };
+		F1E1925D2168C87D003615F7 /* PostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E1925C2168C87D003615F7 /* PostsViewModel.swift */; };
+		F1E1925F2168C901003615F7 /* PostCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E1925E2168C901003615F7 /* PostCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +68,7 @@
 		F1E1923921689C9F003615F7 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		F1E1923B21689CD4003615F7 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		F1E1923D21689CF8003615F7 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
-		F1E192432168A4F5003615F7 /* UsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersView.swift; sourceTree = "<group>"; };
+		F1E192432168A4F5003615F7 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		F1E192452168A50A003615F7 /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
 		F1E192472168A56E003615F7 /* UsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
 		F1E1924A2168A729003615F7 /* UIFont+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Helpers.swift"; sourceTree = "<group>"; };
@@ -72,6 +76,10 @@
 		F1E1924E2168B714003615F7 /* UsersCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersCellViewModel.swift; sourceTree = "<group>"; };
 		F1E192502168BC2C003615F7 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		F1E192522168BF07003615F7 /* APITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APITests.swift; sourceTree = "<group>"; };
+		F1E192552168C458003615F7 /* PostsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsTableViewCell.swift; sourceTree = "<group>"; };
+		F1E1925A2168C85F003615F7 /* PostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
+		F1E1925C2168C87D003615F7 /* PostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewModel.swift; sourceTree = "<group>"; };
+		F1E1925E2168C901003615F7 /* PostCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +151,7 @@
 				F1E19230216898AD003615F7 /* Models */,
 				F1E1922B21689758003615F7 /* Networking */,
 				F1E192412168A4CC003615F7 /* Screens */,
+				F1E192542168BFD0003615F7 /* Views */,
 			);
 			path = ShowcaseApp;
 			sourceTree = "<group>";
@@ -192,6 +201,7 @@
 		F1E192412168A4CC003615F7 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				F1E192592168C84F003615F7 /* Posts */,
 				F1E192422168A4D5003615F7 /* Users */,
 			);
 			path = Screens;
@@ -200,10 +210,8 @@
 		F1E192422168A4D5003615F7 /* Users */ = {
 			isa = PBXGroup;
 			children = (
-				F1E192432168A4F5003615F7 /* UsersView.swift */,
 				F1E1920C2167B952003615F7 /* UsersViewController.swift */,
 				F1E192452168A50A003615F7 /* UsersViewModel.swift */,
-				F1E192472168A56E003615F7 /* UsersTableViewCell.swift */,
 				F1E1924E2168B714003615F7 /* UsersCellViewModel.swift */,
 			);
 			path = Users;
@@ -216,6 +224,26 @@
 				F1E1924C2168A736003615F7 /* UILabel+Helpers.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F1E192542168BFD0003615F7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F1E192552168C458003615F7 /* PostsTableViewCell.swift */,
+				F1E192432168A4F5003615F7 /* TableView.swift */,
+				F1E192472168A56E003615F7 /* UsersTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F1E192592168C84F003615F7 /* Posts */ = {
+			isa = PBXGroup;
+			children = (
+				F1E1925A2168C85F003615F7 /* PostsViewController.swift */,
+				F1E1925C2168C87D003615F7 /* PostsViewModel.swift */,
+				F1E1925E2168C901003615F7 /* PostCellViewModel.swift */,
+			);
+			path = Posts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -395,7 +423,9 @@
 				F1E192462168A50A003615F7 /* UsersViewModel.swift in Sources */,
 				F1E19232216898C6003615F7 /* User.swift in Sources */,
 				F1E192512168BC2C003615F7 /* Post.swift in Sources */,
+				F1E1925F2168C901003615F7 /* PostCellViewModel.swift in Sources */,
 				F1E192482168A56E003615F7 /* UsersTableViewCell.swift in Sources */,
+				F1E1925B2168C860003615F7 /* PostsViewController.swift in Sources */,
 				F1E1920D2167B952003615F7 /* UsersViewController.swift in Sources */,
 				F1E1922D21689780003615F7 /* APIProtocol.swift in Sources */,
 				F1E1924D2168A736003615F7 /* UILabel+Helpers.swift in Sources */,
@@ -404,7 +434,9 @@
 				F1E192342168998E003615F7 /* Address.swift in Sources */,
 				F1E1923621689B66003615F7 /* APIError.swift in Sources */,
 				F1E1923C21689CD4003615F7 /* Request.swift in Sources */,
-				F1E192442168A4F5003615F7 /* UsersView.swift in Sources */,
+				F1E192442168A4F5003615F7 /* TableView.swift in Sources */,
+				F1E1925D2168C87D003615F7 /* PostsViewModel.swift in Sources */,
+				F1E192562168C458003615F7 /* PostsTableViewCell.swift in Sources */,
 				F1E1924B2168A729003615F7 /* UIFont+Helpers.swift in Sources */,
 				F1E1923821689C13003615F7 /* Resource.swift in Sources */,
 			);

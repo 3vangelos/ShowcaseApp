@@ -6,10 +6,10 @@ struct Address: Codable {
     let city: String?
     let zipcode: String?
     
-    func concatenated() -> String {
+    func concatenated() -> String? {
         guard let street = street, let suite = suite,
             let zipcode = zipcode, let city = city else {
-            return "No Address"
+            return nil
         }
         
         return "\(street), \(suite), \(city), \(zipcode)"

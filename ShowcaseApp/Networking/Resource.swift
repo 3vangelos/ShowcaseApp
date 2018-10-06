@@ -2,6 +2,7 @@ import Foundation
 
 enum Resource {
     case users
+    case posts(Int)
     
     private var baseUrlString: String {
         return "https://jsonplaceholder.typicode.com"
@@ -10,6 +11,7 @@ enum Resource {
     private var path: String {
         switch self {
         case .users: return "/users"
+        case .posts: return "/posts"
         }
     }
     
@@ -17,8 +19,20 @@ enum Resource {
         return "get"
     }
     
+    private var queryItems: [URLQueryItem]? {
+        switch self {
+        case .posts(let id):
+            return [URLQueryItem(name: "userId", value: String(id))]
+        default: return nil
+        }
+    }
+    
     private var url: URL {
         let url = baseUrlString + path
+        
+        var components = URLComponents(string: url)
+        components?.queryItems = queryItems
+        
         return URL(string: url)!
     }
     

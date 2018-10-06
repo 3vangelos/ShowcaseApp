@@ -14,7 +14,8 @@ class APITests: XCTestCase {
         sut = nil
         super.tearDown()
     }
-    func testAsynchronousUsersAPI() {
+    
+    func testAsynchronousUsersAPIUsersRequest() {
         let expectation = self.expectation(description: "Fetch Users")
         var users: [User] = []
         
@@ -26,5 +27,19 @@ class APITests: XCTestCase {
 
         waitForExpectations(timeout: 5, handler: nil)
         XCTAssertGreaterThan(users.count, 0)
+    }
+    
+    func testAsynchronousUsersAPIPostRequest() {
+        let expectation = self.expectation(description: "Fetch Posts")
+        var posts: [Post] = []
+        
+        sut.getPostsByUserId(8) { p, e in
+            guard let p = p else { return }
+            posts = p
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 5, handler: nil)
+        XCTAssertGreaterThan(posts.count, 0)
     }
 }

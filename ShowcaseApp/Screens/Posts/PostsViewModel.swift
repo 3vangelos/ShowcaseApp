@@ -17,6 +17,10 @@ class PostsViewModel {
         return posts.count
     }
     
+    var userName: String? {
+        return user.name
+    }
+    
     //MARK: Private Variables
     
     private let user: User

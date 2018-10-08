@@ -1,4 +1,3 @@
-import SnapKit
 import UIKit
 
 class PostsTableViewCell: UITableViewCell {
@@ -13,37 +12,8 @@ class PostsTableViewCell: UITableViewCell {
         didSet { self.bodyLabel.text = body ?? "" }
     }
     
-    //MARK: Private Variables
-    
-    private let titleLabel = UILabel(font: .subTitle)
-    private let bodyLabel = UILabel(font: .body)
-    
-    //MARK: Init Methods
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        let padding = 10.0
-        
-        self.titleLabel.numberOfLines = 0
-        self.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints { make in
-            make.left.top.equalTo(self).offset(padding)
-            make.right.equalTo(self).offset(-padding)
-        }
-        
-        self.bodyLabel.numberOfLines = 0
-        self.addSubview(bodyLabel)
-        bodyLabel.snp.makeConstraints { make in
-            make.left.right.equalTo(titleLabel)
-            make.top.equalTo(titleLabel.snp.bottom).offset(padding)
-            make.bottom.equalTo(self).offset(-2*padding)
-        }
-    }
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var bodyLabel: UILabel!
     
     override func prepareForReuse() {
         super.prepareForReuse()

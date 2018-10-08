@@ -1,18 +1,18 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    let window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
-
+class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
+    
+    var window: UIWindow?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
-        let vc = UsersViewController()
-        vc.vm = UsersViewModel()
-        let nvc = UINavigationController(rootViewController: vc)
-        self.window?.rootViewController = nvc
-        self.window?.makeKeyAndVisible()
         
+        // let it crash if storybaord scenes not set up properly!
+        let nvc = window!.rootViewController as! UINavigationController
+        let vc = nvc.topViewController as! UsersViewController
+        vc.vm = UsersViewModel()
+
         return true
     }
 }
+

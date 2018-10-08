@@ -1,6 +1,6 @@
 import UIKit
 
-class UsersViewController: UIViewController {
+class UsersViewController: UITableViewController {
     
     //MARK: Variables
     
@@ -10,7 +10,7 @@ class UsersViewController: UIViewController {
 
             vm.reloadViewClosure = { [weak self] () in
                 DispatchQueue.main.async {
-                    self?.usersView.reload()
+                    self?.tableView.reloadData()
                 }
             }
 
@@ -24,45 +24,21 @@ class UsersViewController: UIViewController {
         }
     }
     
-    //MARK: Private Variables
-    
-    private lazy var usersView = TableView(cellClass: UsersTableViewCell.self, delegate: self)
-    
-    //MARK: Init Methods
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        fatalError("init(nibName:bundle:) has not been implemented")
-    }
-    
-    init() {
-        super.init(nibName: nil, bundle: nil)
-        
-        self.title = "Users"
-    }
-    
     //MARK: View LifeCycle
-    
-    override func loadView() {
-        self.view = usersView
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
         self.vm?.fetchData()
     }
 }
 
 //MARK: TableViewDelegate & TableViewDataSource
 
-extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cellViewModel = self.vm?.cellViewModelAtIndex(indexPath.row) else { return UsersTableViewCell() }
-        
-        let cell = UsersTableViewCell()
+extension UsersViewController {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cellViewModel = self.vm?.cellViewModelAtIndex(indexPath.row) else { return UITableViewCell() }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UsersCell", for: indexPath) as! UsersTableViewCell
         
         cell.name = cellViewModel.name
         cell.username = cellViewModel.username
@@ -72,14 +48,19 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.vm?.numberOfCells ?? 0
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let postsViewModel = self.vm?.postsViewModelAtIndex(indexPath.row) else { return }
-        let vc = PostsViewController(viewModel: postsViewModel)
-        self.navigationController?.pushViewController(vc, animated: true)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard
+            let indexPath = tableView.indexPathForSelectedRow,
+            let postsViewModel = self.vm?.postsViewModelAtIndex(indexPath.row),
+            let postsVC = segue.destination as? PostsViewController else {
+                return
+        }
+        
+        postsVC.vm = postsViewModel
     }
 }
 

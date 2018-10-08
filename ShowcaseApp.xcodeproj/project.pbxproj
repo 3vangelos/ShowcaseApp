@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1275BE3BB04C56FDB816F461 /* Pods_ShowcaseApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1864CDF216D336BD17DB973 /* Pods_ShowcaseApp.framework */; };
 		3DC3E053E78B7159DFA30ADD /* Pods_ShowcaseAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E1A5EA0FD944674810D4D8A /* Pods_ShowcaseAppTests.framework */; };
+		F13E6A4D216B536800F164E7 /* ShowcaseAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E6A4C216B536800F164E7 /* ShowcaseAppUITests.swift */; };
 		F1E1920B2167B952003615F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E1920A2167B952003615F7 /* AppDelegate.swift */; };
 		F1E1920D2167B952003615F7 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E1920C2167B952003615F7 /* UsersViewController.swift */; };
 		F1E192122167B952003615F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1E192112167B952003615F7 /* Assets.xcassets */; };
@@ -36,6 +37,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		F13E6A4F216B536800F164E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1E191FF2167B952003615F7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F1E192062167B952003615F7;
+			remoteInfo = ShowcaseApp;
+		};
 		F1E1921C2167B953003615F7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F1E191FF2167B952003615F7 /* Project object */;
@@ -52,6 +60,9 @@
 		B1864CDF216D336BD17DB973 /* Pods_ShowcaseApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShowcaseApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7289295DCAF4CB3B04E0FDD /* Pods-ShowcaseApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowcaseApp.release.xcconfig"; path = "Target Support Files/Pods-ShowcaseApp/Pods-ShowcaseApp.release.xcconfig"; sourceTree = "<group>"; };
 		E509267658E4EC61DA0C57E2 /* Pods-ShowcaseAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowcaseAppTests.debug.xcconfig"; path = "Target Support Files/Pods-ShowcaseAppTests/Pods-ShowcaseAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F13E6A4A216B536800F164E7 /* ShowcaseAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShowcaseAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F13E6A4C216B536800F164E7 /* ShowcaseAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowcaseAppUITests.swift; sourceTree = "<group>"; };
+		F13E6A4E216B536800F164E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1E192072167B952003615F7 /* ShowcaseApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShowcaseApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1E1920A2167B952003615F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1E1920C2167B952003615F7 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +94,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F13E6A47216B536800F164E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F1E192042167B952003615F7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -122,11 +140,21 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F13E6A4B216B536800F164E7 /* ShowcaseAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F13E6A4C216B536800F164E7 /* ShowcaseAppUITests.swift */,
+				F13E6A4E216B536800F164E7 /* Info.plist */,
+			);
+			path = ShowcaseAppUITests;
+			sourceTree = "<group>";
+		};
 		F1E191FE2167B952003615F7 = {
 			isa = PBXGroup;
 			children = (
 				F1E192092167B952003615F7 /* ShowcaseApp */,
 				F1E1921E2167B953003615F7 /* ShowcaseAppTests */,
+				F13E6A4B216B536800F164E7 /* ShowcaseAppUITests */,
 				F1E192082167B952003615F7 /* Products */,
 				9E8B99D66A9B28ED51CEEF73 /* Pods */,
 				544F2108AA187662481AF36A /* Frameworks */,
@@ -138,6 +166,7 @@
 			children = (
 				F1E192072167B952003615F7 /* ShowcaseApp.app */,
 				F1E1921B2167B953003615F7 /* ShowcaseAppTests.xctest */,
+				F13E6A4A216B536800F164E7 /* ShowcaseAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -249,6 +278,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F13E6A49216B536800F164E7 /* ShowcaseAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F13E6A53216B536800F164E7 /* Build configuration list for PBXNativeTarget "ShowcaseAppUITests" */;
+			buildPhases = (
+				F13E6A46216B536800F164E7 /* Sources */,
+				F13E6A47216B536800F164E7 /* Frameworks */,
+				F13E6A48216B536800F164E7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F13E6A50216B536800F164E7 /* PBXTargetDependency */,
+			);
+			name = ShowcaseAppUITests;
+			productName = ShowcaseAppUITests;
+			productReference = F13E6A4A216B536800F164E7 /* ShowcaseAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		F1E192062167B952003615F7 /* ShowcaseApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F1E192242167B953003615F7 /* Build configuration list for PBXNativeTarget "ShowcaseApp" */;
@@ -297,6 +344,10 @@
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Pintumo UG";
 				TargetAttributes = {
+					F13E6A49216B536800F164E7 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = F1E192062167B952003615F7;
+					};
 					F1E192062167B952003615F7 = {
 						CreatedOnToolsVersion = 10.0;
 					};
@@ -321,11 +372,19 @@
 			targets = (
 				F1E192062167B952003615F7 /* ShowcaseApp */,
 				F1E1921A2167B953003615F7 /* ShowcaseAppTests */,
+				F13E6A49216B536800F164E7 /* ShowcaseAppUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F13E6A48216B536800F164E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F1E192052167B952003615F7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -414,6 +473,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F13E6A46216B536800F164E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F13E6A4D216B536800F164E7 /* ShowcaseAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F1E192032167B952003615F7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -453,6 +520,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		F13E6A50216B536800F164E7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F1E192062167B952003615F7 /* ShowcaseApp */;
+			targetProxy = F13E6A4F216B536800F164E7 /* PBXContainerItemProxy */;
+		};
 		F1E1921D2167B953003615F7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F1E192062167B952003615F7 /* ShowcaseApp */;
@@ -472,6 +544,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		F13E6A51216B536800F164E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 642J3P53HE;
+				INFOPLIST_FILE = ShowcaseAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pintumo.ShowcaseAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ShowcaseApp;
+			};
+			name = Debug;
+		};
+		F13E6A52216B536800F164E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 642J3P53HE;
+				INFOPLIST_FILE = ShowcaseAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pintumo.ShowcaseAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ShowcaseApp;
+			};
+			name = Release;
+		};
 		F1E192222167B953003615F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -673,6 +783,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F13E6A53216B536800F164E7 /* Build configuration list for PBXNativeTarget "ShowcaseAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F13E6A51216B536800F164E7 /* Debug */,
+				F13E6A52216B536800F164E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F1E192022167B952003615F7 /* Build configuration list for PBXProject "ShowcaseApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

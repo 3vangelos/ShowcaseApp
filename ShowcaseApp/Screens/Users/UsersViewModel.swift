@@ -19,7 +19,7 @@ class UsersViewModel {
     
     //MARK: Private Variables
     
-    private let api: API
+    private let api: APIProtocol
     private var users: [User] = [] {
         didSet {
             self.reloadViewClosure?()
@@ -28,7 +28,7 @@ class UsersViewModel {
     
     //MARK: Init Method
     
-    init(api: API = API()) {
+    init(api: APIProtocol = API()) {
         self.api = api
     }
     

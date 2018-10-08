@@ -10,6 +10,9 @@
 		1275BE3BB04C56FDB816F461 /* Pods_ShowcaseApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1864CDF216D336BD17DB973 /* Pods_ShowcaseApp.framework */; };
 		3DC3E053E78B7159DFA30ADD /* Pods_ShowcaseAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E1A5EA0FD944674810D4D8A /* Pods_ShowcaseAppTests.framework */; };
 		F13E6A4D216B536800F164E7 /* ShowcaseAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E6A4C216B536800F164E7 /* ShowcaseAppUITests.swift */; };
+		F13E6A55216B618F00F164E7 /* UserViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E6A54216B618F00F164E7 /* UserViewModelTest.swift */; };
+		F13E6A58216B61BC00F164E7 /* APIMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E6A57216B61BC00F164E7 /* APIMock.swift */; };
+		F13E6A5B216B634500F164E7 /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = F13E6A5A216B634500F164E7 /* users.json */; };
 		F1E1920B2167B952003615F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E1920A2167B952003615F7 /* AppDelegate.swift */; };
 		F1E1920D2167B952003615F7 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E1920C2167B952003615F7 /* UsersViewController.swift */; };
 		F1E192122167B952003615F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1E192112167B952003615F7 /* Assets.xcassets */; };
@@ -63,6 +66,9 @@
 		F13E6A4A216B536800F164E7 /* ShowcaseAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShowcaseAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F13E6A4C216B536800F164E7 /* ShowcaseAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowcaseAppUITests.swift; sourceTree = "<group>"; };
 		F13E6A4E216B536800F164E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F13E6A54216B618F00F164E7 /* UserViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModelTest.swift; sourceTree = "<group>"; };
+		F13E6A57216B61BC00F164E7 /* APIMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMock.swift; sourceTree = "<group>"; };
+		F13E6A5A216B634500F164E7 /* users.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
 		F1E192072167B952003615F7 /* ShowcaseApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShowcaseApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1E1920A2167B952003615F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1E1920C2167B952003615F7 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +155,22 @@
 			path = ShowcaseAppUITests;
 			sourceTree = "<group>";
 		};
+		F13E6A56216B61A000F164E7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F13E6A57216B61BC00F164E7 /* APIMock.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F13E6A59216B631500F164E7 /* Stubs */ = {
+			isa = PBXGroup;
+			children = (
+				F13E6A5A216B634500F164E7 /* users.json */,
+			);
+			path = Stubs;
+			sourceTree = "<group>";
+		};
 		F1E191FE2167B952003615F7 = {
 			isa = PBXGroup;
 			children = (
@@ -188,8 +210,11 @@
 		F1E1921E2167B953003615F7 /* ShowcaseAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				F13E6A59216B631500F164E7 /* Stubs */,
+				F13E6A56216B61A000F164E7 /* Helpers */,
 				F1E192522168BF07003615F7 /* APITests.swift */,
 				F1E192212167B953003615F7 /* Info.plist */,
+				F13E6A54216B618F00F164E7 /* UserViewModelTest.swift */,
 			);
 			path = ShowcaseAppTests;
 			sourceTree = "<group>";
@@ -398,6 +423,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F13E6A5B216B634500F164E7 /* users.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,7 +539,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F13E6A58216B61BC00F164E7 /* APIMock.swift in Sources */,
 				F1E192532168BF07003615F7 /* APITests.swift in Sources */,
+				F13E6A55216B618F00F164E7 /* UserViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

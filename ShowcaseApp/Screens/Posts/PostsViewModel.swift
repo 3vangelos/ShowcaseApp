@@ -20,7 +20,7 @@ class PostsViewModel {
     //MARK: Private Variables
     
     private let user: User
-    private let api: API
+    private let api: APIProtocol
     private var posts: [Post] = [] {
         didSet {
             self.reloadViewClosure?()
@@ -29,7 +29,7 @@ class PostsViewModel {
     
     //MARK: Init Method
     
-    init(user: User, api: API) {
+    init(user: User, api: APIProtocol) {
         self.api = api
         self.user = user
     }

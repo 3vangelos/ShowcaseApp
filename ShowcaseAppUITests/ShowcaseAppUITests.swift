@@ -27,14 +27,14 @@ class ShowcaseAppUITests: XCTestCase {
 
     func testNavigationBackFromDetailScreen() {
         tablesQuery.cells.firstMatch.tap()
-        let usersButton = app.navigationBars["Posts"].buttons["Users"]
+        let usersButton = app.navigationBars.firstMatch.buttons.firstMatch
         usersButton.tap()
     }
     
     func testUIFlowAfterOrientationChange() {
         XCUIDevice.shared.orientation = .landscapeLeft
         tablesQuery.cells.firstMatch.tap()
-        let usersButton = app.navigationBars["Posts"].buttons["Users"]
+        let usersButton = app.navigationBars.firstMatch.buttons.firstMatch
         usersButton.tap()
     }
 }

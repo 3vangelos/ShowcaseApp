@@ -1,32 +1,16 @@
+import RxSwift
 import UIKit
 
 class UsersViewController: UIViewController {
     
     //MARK: Variables
     
-    var vm: UsersViewModel? {
-        didSet {
-            guard let vm = vm else { return }
-
-            vm.reloadViewClosure = { [weak self] () in
-                DispatchQueue.main.async {
-                    self?.usersView.reload()
-                }
-            }
-
-            vm.showAlertClosure = { [weak self] () in
-                DispatchQueue.main.async {
-                    if let message = self?.vm?.alertMessage {
-                        self?.showAlert( message )
-                    }
-                }
-            }
-        }
-    }
+    var vm: UsersViewModel?
     
     //MARK: Private Variables
     
     private lazy var usersView = TableView(cellClass: UsersTableViewCell.self, delegate: self)
+    private lazy var disposeBag = DisposeBag()
     
     //MARK: Init Methods
     
@@ -48,6 +32,21 @@ class UsersViewController: UIViewController {
     
     override func loadView() {
         self.view = usersView
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.vm?.users
+            .asObservable()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { users in
+                self.usersView.reload()
+            }, onError: { error in
+                let message = (error as? APIError)?.message ?? "Error occured"
+                self.showAlert(message)
+            })
+            .disposed(by: disposeBag)
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -1,3 +1,4 @@
+import RxSwift
 import UIKit
 
 class PostsViewController: UIViewController {
@@ -34,19 +35,12 @@ class PostsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        vm.reloadViewClosure = { [weak self] () in
-            DispatchQueue.main.async {
-                self?.postsView.reload()
-            }
-        }
-        
-        vm.showAlertClosure = { [weak self] () in
-            DispatchQueue.main.async {
-                if let message = self?.vm.alertMessage {
-                    self?.showAlert( message )
-                }
-            }
-        }
+        _ = self.vm.posts.asObservable().observeOn(MainScheduler.instance).subscribe(onNext: { users in
+            self.postsView.reload()
+        }, onError: { error in
+            let message = (error as? APIError)?.message ?? "Error occured"
+            self.showAlert(message)
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {

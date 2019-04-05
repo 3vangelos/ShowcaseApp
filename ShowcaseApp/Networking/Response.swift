@@ -1,21 +1,19 @@
 import Foundation
+import RxSwift
 
 struct Response {
     
-    static func parse<T: Codable>(statusCode: StatusCode?, data: Data?, error: NSError?, _ completion: @escaping (T?, APIError?) -> Void) {
-        
-        if let error = APIError.apiServiceErrorForHTTPStatus(statusCode: statusCode, errorCode: error?.code) {
-            completion(nil, error)
-        } else if let data = data {
+    static func parse<T: Codable>(data: Data) -> Observable<T> {
+        return Observable<T>.create { o in
             do {
-                let decoder = JSONDecoder()
-                let decodedObject: T = try decoder.decode(T.self, from: data)
-                completion(decodedObject, nil)
+                let decodedObject: T = try JSONDecoder().decode(T.self, from: data)
+                o.onNext(decodedObject)
+                o.onCompleted()
             } catch {
-                completion(nil, .decoding)
+                o.onError(APIError.decoding)
             }
-        } else {
-            completion(nil, .other)
+            
+            return Disposables.create()
         }
     }
 }

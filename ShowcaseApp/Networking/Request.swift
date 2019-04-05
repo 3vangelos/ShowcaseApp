@@ -1,4 +1,5 @@
 import Foundation
+import RxSwift
 
 typealias StatusCode = Int
 
@@ -12,10 +13,19 @@ struct Request {
         return URLSession(configuration: configuration)
     }()
     
-    static func data(_ request: URLRequest, completion: @escaping (StatusCode?, Data?, Error?) -> Void) {
-        session.dataTask(with: request) { data, response, error in
-            completion(response?.statusCode(), data, error)
+    static func data(_ request: URLRequest) -> Observable<(Data)> {
+        return Observable<(Data)>.create { o in
+            session.dataTask(with: request) { data, response, error in
+                if let data = data {
+                    o.onNext(data)
+                    o.onCompleted()
+                } else {
+                    o.onError(APIError.createFromError(error: error, statusCode: response?.statusCode()))
+                }
             }.resume()
+            
+            return Disposables.create()
+        }
     }
 }
 

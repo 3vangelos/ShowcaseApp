@@ -6,6 +6,15 @@ enum APIError: Error {
     case noConnectivity
     case other
     
+    static func createFromError(error: Error?, statusCode: StatusCode?) -> APIError {
+        if let error = APIError.apiServiceErrorForHTTPStatus(statusCode: statusCode,
+                                                             errorCode: (error as NSError?)?.code) {
+            return error
+        } else {
+            return APIError.other
+        }
+    }
+    
     static func apiServiceErrorForHTTPStatus(statusCode: Int?, errorCode: Int?) -> APIError? {
         guard let statusCode = statusCode, 200..<400 ~= statusCode else { return errorForCode(errorCode) }
         return nil

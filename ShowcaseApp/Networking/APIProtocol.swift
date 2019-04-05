@@ -1,8 +1,8 @@
-import Foundation
+import RxSwift
 
 protocol APIProtocol {
     
-    func getUsers(_ completion: @escaping ([User]?, APIError?) -> Void)
+    func getUsers() -> Observable<[User]>
     
-    func getPostsByUserId(_ id: Int, _ completion: @escaping ([Post]?, APIError?) -> Void)
+    func getPostsByUserId(_ id: Int) -> Observable<[Post]>
 }

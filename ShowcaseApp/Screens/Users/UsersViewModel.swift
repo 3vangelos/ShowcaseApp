@@ -1,30 +1,18 @@
 import Foundation
+import RxCocoa
 
 class UsersViewModel {
     
     //MARK: Variables
-    
-    var reloadViewClosure: (()->())?
-    var showAlertClosure: (()->())?
-    
-    var alertMessage: String? {
-        didSet {
-            self.showAlertClosure?()
-        }
-    }
-    
+
+    var users = BehaviorRelay<[User]>(value: [])
     var numberOfCells: Int {
-        return users.count
+        return self.users.value.count
     }
     
     //MARK: Private Variables
     
     private let api: APIProtocol
-    private var users: [User] = [] {
-        didSet {
-            self.reloadViewClosure?()
-        }
-    }
     
     //MARK: Init Method
     
@@ -35,22 +23,18 @@ class UsersViewModel {
     //MARK: Public Methods
     
     func cellViewModelAtIndex(_ index: Int) -> UsersCellViewModel? {
-        let user = self.users[index]
+        let user = self.users.value[index]
         return UsersCellViewModel(user)
     }
     
     func postsViewModelAtIndex(_ index: Int) -> PostsViewModel? {
-        let user = self.users[index]
+        let user = self.users.value[index]
         return PostsViewModel(user: user, api: self.api)
     }
     
     func fetchData() {
-        api.getUsers { users, error in
-            if let error = error {
-                self.alertMessage = error.message
-            } else if let users = users {
-                self.users = users
-            }
-        }
+        _ = api.getUsers().subscribe(onNext: { users in
+            self.users.accept(users)
+        })
     }
 }

@@ -37,14 +37,29 @@ class UsersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.vm?.users
+        self.vm?.isLoadingSeq
             .asObservable()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { isLoading in
+                self.usersView.isLoading = isLoading
+            })
+            .disposed(by: disposeBag)
+        
+        self.vm?.usersSeq
+            .asObservable()
+            .filter { $0.isEmpty == false }
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { users in
                 self.usersView.reload()
-            }, onError: { error in
-                let message = (error as? APIError)?.message ?? "Error occured"
-                self.showAlert(message)
+            })
+            .disposed(by: disposeBag)
+        
+        self.vm?.errorsSeq
+            .asObservable()
+            .filter { $0 != nil }
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { error in
+                self.showAlert((error as? APIError)?.message ?? "Error occured")
             })
             .disposed(by: disposeBag)
     }

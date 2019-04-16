@@ -7,6 +7,7 @@ class PostsViewController: UIViewController {
     
     private let vm: PostsViewModel
     private lazy var postsView = TableView(cellClass: PostsTableViewCell.self, delegate: self)
+    private lazy var disposeBag = DisposeBag()
     
     //MARK: Init Methods
     
@@ -35,12 +36,30 @@ class PostsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        _ = self.vm.posts.asObservable().observeOn(MainScheduler.instance).subscribe(onNext: { users in
-            self.postsView.reload()
-        }, onError: { error in
-            let message = (error as? APIError)?.message ?? "Error occured"
-            self.showAlert(message)
-        })
+        self.vm.isLoadingSeq
+            .asObservable()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { isLoading in
+                self.postsView.isLoading = isLoading
+            })
+            .disposed(by: disposeBag)
+        
+        self.vm.postsSeq
+            .asObservable()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { _ in
+                self.postsView.reload()
+            })
+            .disposed(by: disposeBag)
+        
+        self.vm.errorsSeq
+            .asObservable()
+            .filter { $0 != nil }
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { error in
+                self.showAlert((error as? APIError)?.message ?? "Error occured")
+            })
+            .disposed(by: disposeBag)
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -48,11 +48,22 @@ class UserViewModelTest: XCTestCase {
     }
     
     func testFailedToFetchUsers() {
+        let expectation = self.expectation(description: "Fail fetching Users")
+        
         let someError = APIError.other
         apiMock.usersFetchFail(someError)
-
+        
+        var apiError: APIError? = nil
+        _ = sut.errorsSeq
+            .filter({ $0 != nil })
+            .subscribe(onNext: { error in
+            apiError = error as? APIError
+            expectation.fulfill()
+        })
+        
         sut.fetchData()
         
-        XCTAssertEqual( sut.alertMessage, someError.message )
+        waitForExpectations(timeout: 5, handler: nil)
+        XCTAssertEqual( apiError?.message, someError.message )
     }
 }

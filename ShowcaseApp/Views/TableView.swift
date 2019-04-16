@@ -1,7 +1,19 @@
 import UIKit
 
 class TableView: UIView {
+    
+    //MARK: Variables
 
+    var isLoading: Bool = false {
+        didSet {
+            if isLoading {
+                self.activityIndicatorView.startAnimating()
+            } else {
+                self.activityIndicatorView.stopAnimating()
+            }
+        }
+    }
+    
     //MARK: Private Variables
     
     private let classType: UITableViewCell.Type
@@ -9,6 +21,7 @@ class TableView: UIView {
         return String(describing: self.classType)
     }
     private let tableView = UITableView()
+    private let activityIndicatorView = UIActivityIndicatorView(style: .gray)
     
     //MARK: Init Methods
     
@@ -33,6 +46,12 @@ class TableView: UIView {
         self.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.edges.equalTo(self)
+        }
+        
+        activityIndicatorView.hidesWhenStopped = true
+        self.addSubview(activityIndicatorView)
+        activityIndicatorView.snp.makeConstraints { make in
+            make.center.equalTo(self)
         }
     }
 }

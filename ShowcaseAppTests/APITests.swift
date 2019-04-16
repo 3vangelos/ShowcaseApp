@@ -19,11 +19,10 @@ class APITests: XCTestCase {
         let expectation = self.expectation(description: "Fetch Users")
         var users: [User] = []
         
-        sut.getUsers { u, e in
-            guard let u = u else { return }
+        _ = sut.getUsers().subscribe(onNext: { u in
             users = u
             expectation.fulfill()
-        }
+        })
 
         waitForExpectations(timeout: 5, handler: nil)
         XCTAssertGreaterThan(users.count, 0)
@@ -33,11 +32,10 @@ class APITests: XCTestCase {
         let expectation = self.expectation(description: "Fetch Posts")
         var posts: [Post] = []
         
-        sut.getPostsByUserId(8) { p, e in
-            guard let p = p else { return }
+        _ = sut.getPostsByUserId(8).subscribe(onNext: { p in
             posts = p
             expectation.fulfill()
-        }
+        })
         
         waitForExpectations(timeout: 5, handler: nil)
         XCTAssertGreaterThan(posts.count, 0)

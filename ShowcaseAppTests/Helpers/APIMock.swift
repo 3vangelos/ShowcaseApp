@@ -1,23 +1,22 @@
+import RxSwift
 import XCTest
 @testable import ShowcaseApp
 
 class APIMock: APIProtocol {
+    func getUsers() -> Observable<[User]> {
+        isFetchDataCalled = true
+        return error != nil ? Observable.error(self.error!) : Observable.just(users ?? [])
+    }
+    
+    func getPostsByUserId(_ id: Int) -> Observable<[Post]> {
+        isFetchDataCalled = true
+        return Observable.just([])
+    }
+    
     
     var isFetchDataCalled = false
     var users: [User]? = nil
     var error: APIError? = nil
-    
-    var usersCompleteFetch: (([User]?, APIError?) -> Void)!
-    var postsCompleteFetch: (([Post]?, APIError?) -> Void)!
-    
-    func getUsers(_ completion: @escaping ([User]?, APIError?) -> Void) {
-        isFetchDataCalled = true
-        completion(users, error)
-    }
-    
-    func getPostsByUserId(_ id: Int, _ completion: @escaping ([Post]?, APIError?) -> Void) {
-        isFetchDataCalled = true
-    }
 
     func usersFetchFail(_ error: APIError?) {
         self.error = error

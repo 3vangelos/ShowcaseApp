@@ -24,7 +24,6 @@ class UsersViewController: UIViewController {
     
     init() {
         super.init(nibName: nil, bundle: nil)
-        
         self.title = "Users"
     }
     
@@ -45,7 +44,7 @@ class UsersViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        self.vm?.usersSeq
+        self.vm?.modelArraySeq
             .asObservable()
             .filter { $0.isEmpty == false }
             .observeOn(MainScheduler.instance)
@@ -54,7 +53,7 @@ class UsersViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        self.vm?.errorsSeq
+        self.vm?.errorSeq
             .asObservable()
             .filter { $0 != nil }
             .observeOn(MainScheduler.instance)

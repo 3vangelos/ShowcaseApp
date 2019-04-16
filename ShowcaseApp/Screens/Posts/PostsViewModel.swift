@@ -2,32 +2,23 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-class PostsViewModel {
-
-    //MARK: Variables
-    
-    var postsSeq = BehaviorRelay<[Post]>(value: [])
-    var errorsSeq = BehaviorSubject<Error?>(value: nil)
-    var isLoadingSeq = BehaviorSubject<Bool>(value: false)
-    var numberOfCells: Int { return self.postsSeq.value.count }
+final class PostsViewModel: ViewModel {
     
     //MARK: Private Variables
     
     private let user: User
-    private let api: APIProtocol
-    private let disposeBag = DisposeBag()
     
     //MARK: Init Method
     
     init(user: User, api: APIProtocol) {
-        self.api = api
         self.user = user
+        super.init(api: api)
     }
     
     //MARK: Public Methods
 
     func cellViewModelAtIndex(_ index: Int) -> PostCellViewModel? {
-        let post = self.postsSeq.value[index]
+        guard let post = self.modelArraySeq.value[index] as? Post else { return nil }
         return PostCellViewModel(post)
     }
     
@@ -35,10 +26,10 @@ class PostsViewModel {
         self.isLoadingSeq.onNext(true)
         self.api.getPostsByUserId(self.user.id)
             .subscribe(onNext: { posts in
-                self.postsSeq.accept(posts)
+                self.modelArraySeq.accept(posts)
             }, onError: { error in
                 self.isLoadingSeq.onNext(false)
-                self.errorsSeq.onNext(error)
+                self.errorSeq.onNext(error)
             }, onCompleted: {
                 self.isLoadingSeq.onNext(false)
             })

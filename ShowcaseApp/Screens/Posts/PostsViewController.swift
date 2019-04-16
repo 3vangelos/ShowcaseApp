@@ -21,9 +21,7 @@ class PostsViewController: UIViewController {
     
     init(viewModel: PostsViewModel) {
         self.vm = viewModel
-        
         super.init(nibName: nil, bundle: nil)
-        
         self.title = "Posts"
     }
     
@@ -44,7 +42,7 @@ class PostsViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        self.vm.postsSeq
+        self.vm.modelArraySeq
             .asObservable()
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { _ in
@@ -52,7 +50,7 @@ class PostsViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        self.vm.errorsSeq
+        self.vm.errorSeq
             .asObservable()
             .filter { $0 != nil }
             .observeOn(MainScheduler.instance)

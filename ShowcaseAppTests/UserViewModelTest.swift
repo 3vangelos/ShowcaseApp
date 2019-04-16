@@ -54,7 +54,7 @@ class UserViewModelTest: XCTestCase {
         apiMock.usersFetchFail(someError)
         
         var apiError: APIError? = nil
-        _ = sut.errorsSeq
+        _ = sut.errorSeq
             .filter({ $0 != nil })
             .subscribe(onNext: { error in
             apiError = error as? APIError

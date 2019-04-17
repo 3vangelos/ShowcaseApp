@@ -3,6 +3,12 @@ import RxCocoa
 import RxSwift
 
 final class UsersViewModel: ViewModel {
+    
+    //MARK: Init Method
+    
+    override init(api: APIProtocol) {
+        super.init(api: api)
+    }
 
     //MARK: Public Methods
     
@@ -11,9 +17,8 @@ final class UsersViewModel: ViewModel {
         return UsersCellViewModel(user)
     }
     
-    func postsViewModelAtIndex(_ index: Int) -> PostsViewModel? {
-        guard let user = self.modelArraySeq.value[index] as? User else { return nil }
-        return PostsViewModel(user: user, api: self.api)
+    func userAtIndex(_ index: Int) -> User? {
+        return self.modelArraySeq.value[index] as? User
     }
 
     func fetchData() {

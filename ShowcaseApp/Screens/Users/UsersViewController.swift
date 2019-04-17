@@ -90,9 +90,8 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let postsViewModel = self.vm?.postsViewModelAtIndex(indexPath.row) else { return }
-        let vc = PostsViewController(viewModel: postsViewModel)
-        self.navigationController?.pushViewController(vc, animated: true)
+        guard let user = self.vm?.userAtIndex(indexPath.row) else { return }
+        self.router()?.presentPosts(of: user)
     }
 }
 

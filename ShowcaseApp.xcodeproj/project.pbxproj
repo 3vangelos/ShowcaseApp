@@ -14,6 +14,7 @@
 		F13E6A58216B61BC00F164E7 /* APIMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E6A57216B61BC00F164E7 /* APIMock.swift */; };
 		F13E6A5B216B634500F164E7 /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = F13E6A5A216B634500F164E7 /* users.json */; };
 		F1542549226627FF00EAD7CD /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1542548226627FF00EAD7CD /* ViewModel.swift */; };
+		F154254C226659FE00EAD7CD /* FileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F154254B226659FE00EAD7CD /* FileHandler.swift */; };
 		F1E1920B2167B952003615F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E1920A2167B952003615F7 /* AppDelegate.swift */; };
 		F1E1920D2167B952003615F7 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E1920C2167B952003615F7 /* UsersViewController.swift */; };
 		F1E192122167B952003615F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1E192112167B952003615F7 /* Assets.xcassets */; };
@@ -71,6 +72,7 @@
 		F13E6A57216B61BC00F164E7 /* APIMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMock.swift; sourceTree = "<group>"; };
 		F13E6A5A216B634500F164E7 /* users.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
 		F1542548226627FF00EAD7CD /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		F154254B226659FE00EAD7CD /* FileHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHandler.swift; sourceTree = "<group>"; };
 		F1E192072167B952003615F7 /* ShowcaseApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShowcaseApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1E1920A2167B952003615F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1E1920C2167B952003615F7 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				F1E1923D21689CF8003615F7 /* API.swift */,
 				F1E1923521689B66003615F7 /* APIError.swift */,
 				F1E1922C21689780003615F7 /* APIProtocol.swift */,
+				F154254B226659FE00EAD7CD /* FileHandler.swift */,
 				F1E1923B21689CD4003615F7 /* Request.swift */,
 				F1E1923721689C13003615F7 /* Resource.swift */,
 				F1E1923921689C9F003615F7 /* Response.swift */,
@@ -535,6 +538,7 @@
 				F1E192482168A56E003615F7 /* UsersTableViewCell.swift in Sources */,
 				F1E1925B2168C860003615F7 /* PostsViewController.swift in Sources */,
 				F1E1920D2167B952003615F7 /* UsersViewController.swift in Sources */,
+				F154254C226659FE00EAD7CD /* FileHandler.swift in Sources */,
 				F1E1922D21689780003615F7 /* APIProtocol.swift in Sources */,
 				F1E1924D2168A736003615F7 /* UILabel+Helpers.swift in Sources */,
 				F1E1923E21689CF8003615F7 /* API.swift in Sources */,
